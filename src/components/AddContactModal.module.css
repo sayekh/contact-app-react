@@ -1,0 +1,82 @@
+* {
+	/* border: 1px solid grey; */
+}
+.modal {
+	/* background-color: #f0f; */
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	/* transform: translateY(-80px); */
+	animation: showModal 0.5s ease-in-out forwards;
+	background: #000000e3;
+	z-index: 100;
+}
+@keyframes showModal {
+	0% {
+		transform: translateY(-100%);
+	}
+	100% {
+		transform: translateY(0px);
+	}
+}
+.modalContent {
+	width: 90%;
+	max-width: 300px;
+	padding: 20px;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(0, 0, 0, 0.7);
+	backdrop-filter: blur(10px);
+	gap: 15px;
+}
+
+.modalContent input {
+	width: 100%;
+	padding: 10px;
+	margin: 5px 0;
+	border: 2px solid #0ff;
+	border-radius: 8px;
+	background-color: transparent;
+	color: #fff;
+	font-family: "Orbitron", sans-serif;
+	outline: none;
+	box-shadow: 0 0 3px #0ff, 0 0 6px #f0f, 0 0 4px #0ff;
+	transition: 0.3s;
+}
+
+.modalContent input::placeholder {
+	color: #aaa;
+}
+
+.modalContent div {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	margin-top: 10px;
+}
+
+.modalContent button {
+	flex: 1;
+	margin: 0 5px;
+	padding: 10px;
+	border: none;
+	border-radius: 8px;
+	background: linear-gradient(45deg, rgba(0, 162, 255, 0.884), #f0f);
+	font-weight: bold;
+	color: #000;
+	cursor: pointer;
+	font-family: "Orbitron", sans-serif;
+}
+
+.modalContent button:hover {
+	background: linear-gradient(45deg, rgba(255, 0, 255, 0.63), rgba(0, 162, 255, 0.884));
+}

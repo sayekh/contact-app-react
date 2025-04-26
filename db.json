@@ -1,0 +1,22 @@
+{
+  "contacts": [
+    {
+      "id": "1",
+      "name": "ali",
+      "email": "ali@example.com",
+      "job": "برنامه‌نویس",
+      "address": "تهران"
+    },
+    {
+      "id": "2",
+      "name": "samane",
+      "email": "samane@example.com",
+      "job": "طراح UI",
+      "address": "اصفهان"
+    }
+  ],
+  "searchTerm": {
+    "id": 1,
+    "value": ""
+  }
+}

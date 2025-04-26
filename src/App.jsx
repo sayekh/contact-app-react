@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import ContactsProvider from "./contexts/ContactsContent.jsx";
+import Contacts from "./components/Contacts";
+import Search from "./components/Search.jsx";
+import AddContactModal from "./components/AddContactModal.jsx";
+
+import style from "./App.module.css";
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+	const [showModal, setShowModal] = useState({
+		renderModal: false,
+		content: null,
+	});
+	return (
+		<>
+			<ContactsProvider>
+				<div className={style.appWrapper}>
+					{showModal.renderModal && (
+						<AddContactModal
+							onClose={() =>
+								setShowModal({
+									renderModal: false,
+									content: null,
+								})
+							}
+							content={showModal.content}
+						/>
+					)}
+					<div className={style.formContainer}>
+						<div className={style.header}>
+							<h1 className={style.neonTitle}>Contact App</h1>
+						</div>
+						<Search />
+						<Contacts showModal={showModal} setShowModal={setShowModal} />
+					</div>
+				</div>
+			</ContactsProvider>
+		</>
+	);
 }
 
-export default App
+export default App;
